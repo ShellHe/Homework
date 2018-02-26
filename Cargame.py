@@ -3,11 +3,9 @@ import time
 import random
 
 pygame.init()
-crash_sound = pygame.mixer.Sound("NoNoNo.mp3")
-
 
 #############
-crash_sound = pygame.mixer.Sound("NoNoNo.mp3")
+#crash_sound = pygame.mixer.Sound("crash.wav")
 #############
 
 display_width = 800
@@ -31,7 +29,7 @@ pygame.display.set_caption('A bit Racey')
 clock = pygame.time.Clock()
 
 carImg = pygame.image.load('racecar.png')
-gameIcon = pygame.image.load('carIcon.png')
+gameIcon = pygame.image.load('racecar.png')
 
 pygame.display.set_icon(gameIcon)
 
@@ -157,7 +155,7 @@ def game_intro():
 def game_loop():
     global pause
     ############
-    pygame.mixer.music.load('jazz.wav')
+    pygame.mixer.music.load('201.mp3')
     pygame.mixer.music.play(-1)
     ############
     x = (display_width * 0.45)
@@ -185,16 +183,16 @@ def game_loop():
                 quit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_a:
+                if event.key == pygame.K_LEFT:
                     x_change = -5
-                if event.key == pygame.K_d:
+                if event.key == pygame.K_RIGHT:
                     x_change = 5
                 if event.key == pygame.K_p:
                     pause = True
                     paused()
 
             if event.type == pygame.KEYUP:
-                if event.key == pygame.K_a or event.key == pygame.K_d:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     x_change = 0
 
         x += x_change
